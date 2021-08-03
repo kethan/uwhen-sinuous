@@ -1,7 +1,7 @@
 ## When elements based on sinuous render
 
 ```html
-<my-counter id="my-counter">
+<my-counter id="my-counter" counter="10">
 	<div slot="one">my counter tag slot one</div>
 	<div slot="two">
 		<another-tag id="another-tag">
@@ -11,19 +11,19 @@
 </my-counter>
 ```
 
-```ts
-import { render, when, o, h} from "uwhen-sinuous";
+```jsx
+import { render, when, o, h } from "uwhen-sinuous";
 
 setTimeout(() => {
 	const ele = document.getElementById("another-tag");
 	ele.remove();
 }, 3000);
 
-when("another-tag", (element, props, kids: any) => {
+when("another-tag", (element, props, slots) => {
 	render(
 		<div>
-			<div>my c</div>
-			<div>{kids.three}</div>
+			<div>another-tag content</div>
+			<div>{slots.three}</div>
 		</div>,
 		element
 	);
@@ -32,15 +32,15 @@ when("another-tag", (element, props, kids: any) => {
 	};
 });
 
-when("my-counter", (element, props, kids: any) => {
-	const setValue = o(0);
+when("my-counter", (element, props, slots) => {
+	const setValue = o(parseInt(props.counter) || 0);
 	render(
 		<div>
-			<div>Counter: {setValue}</div>
 			<button onclick={() => setValue(setValue() + 1)}>Increment</button>
-			<div>{kids.one}</div>
-			<div>{kids.two}</div>
+			<div>Counter: {setValue}</div>
 			<button onclick={() => setValue(setValue() - 1)}>Decrement</button>
+			<div>{slots.one}</div>
+			<div>{slots.two}</div>
 		</div>,
 		element
 	);

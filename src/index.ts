@@ -1,28 +1,5 @@
 import { whenAdded } from "when-elements";
 
-import {
-    render,
-    rhtml as html,
-    rsvg as svg,
-    r as h,
-    rs as hs,
-} from "sinuous/render";
-
-import {
-    o,
-    cleanup,
-    computed,
-    observable,
-    subscribe,
-    S,
-    sample,
-    isListening,
-    on,
-    root,
-    transaction,
-    unsubscribe
-} from "sinuous/observable";
-
 const get = (child, name) => child.getAttribute(name);
 
 const queryHelper = (attr, arr) => (element) =>
@@ -71,12 +48,6 @@ const when = (selector: string, callback) => {
 };
 
 export {
-    h,
-    html,
-    render,
-    svg,
-    hs,
-    when,
     o,
     cleanup,
     computed,
@@ -89,4 +60,16 @@ export {
     root,
     transaction,
     unsubscribe
+} from "sinuous/observable";
+
+export {
+    render,
+    rhtml as html,
+    rsvg as svg,
+    r as h,
+    rs as hs,
+} from "sinuous/render";
+
+export {
+    when
 };
