@@ -255,7 +255,8 @@ export interface PalElements {
     createElement: any;
     completeAssign: (target: any, ...sources: any[]) => void;
 }
-
 export interface PalWindow extends Window {
     PalElements: PalElements;
 }
+
+export * from './src/index';
