@@ -233,7 +233,7 @@ interface IPalElementsComponent {
     [k: string]: any;
 }
 
-export interface PalElements {
+export interface UElements {
     useState: typeof useState;
     useReducer: typeof useReducer;
     useContext: typeof useContext;
@@ -255,8 +255,7 @@ export interface PalElements {
     createElement: any;
     completeAssign: (target: any, ...sources: any[]) => void;
 }
-export interface PalWindow extends Window {
-    PalElements: PalElements;
-}
 
-export * from './src/index';
+declare let html:any;
+export { html };
+export { h, render, Fragment, createElement } from "preact";

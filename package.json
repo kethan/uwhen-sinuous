@@ -1,7 +1,7 @@
 {
 	"name": "uelements",
 	"description": "uelements provides a functional way of defining custom elements",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"source": "./src/index.ts",
 	"main": "./dist/uelements.umd.js",
 	"module": "./dist/uelements.es.js",
