@@ -1,75 +1,57 @@
-import { whenAdded } from "when-elements";
+import { h, render, Fragment, createElement } from 'preact';
+import { createContext, define as $define, defineAsync as $defineAsync, get, upgrade, useCallback, useContext, useEffect, useLayoutEffect, useMemo, useReducer, useRef, useState, whenDefined } from 'hooked-elements';
+import htm from 'htm';
+const html = htm.bind(h);
 
-const get = (child, name) => child.getAttribute(name);
-
-const queryHelper = (attr, arr) => (element) =>
-    [].reduce.call(
-        element.querySelectorAll("[" + attr + "]"),
-        (slot: any, node) => {
-            let { parentNode }: any = node;
-            do {
-                if (parentNode === element) {
-                    const name = get(node, attr);
-                    slot[name] = arr ? [].concat(slot[name] || [], node) : node;
-                    break;
-                } else if (
-                    /-/.test(parentNode.tagName) ||
-                    get(parentNode, "is")
-                )
-                    break;
-            } while ((parentNode = parentNode.parentNode));
-            return slot;
-        },
-        {}
-    );
-
-
-const slot = queryHelper("slot", true);
-
-const removeAllChildNodes = (parent) => {
-    while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
+function completeAssign(target: any, ...sources: any[]) {
+    const options = {
+        enumerable: true,
+        configurable: true
+    };
+    sources.forEach((source) => {
+        if (source) {
+            Object.keys(source).forEach((prop) => {
+                const descriptor: any = Object.getOwnPropertyDescriptor(source, prop);
+                Object.defineProperty(target, prop, Object.assign(descriptor, options));
+            });
+        }
+    });
+    return target;
 }
 
-const when = (selector: string, callback) => {
-    whenAdded(selector, (element: HTMLElement) => {
-        const props = {};
-        for (let i = 0; i < element.attributes.length; i++) {
-            props[[element.attributes[i].name] as any] = element.attributes[i].value;
+const define = (name: string, callback, attrs = []) => {
+    $define(name, {
+        observedAttributes: attrs,
+        attributeChanged() {
+            (this as any).render();
+        },
+        render(element) {
+            const Comp = callback(element);
+            render(Comp, element);
         }
-        const slots = slot(element);
-        removeAllChildNodes(element);
-        const fn = callback(element, props, slots);
-        return () => {
-            if (fn) fn();
-        };
     });
 };
 
 export {
-    o,
-    cleanup,
-    computed,
-    observable,
-    subscribe,
-    S,
-    sample,
-    isListening,
-    on,
-    root,
-    transaction,
-    unsubscribe
-} from "sinuous/observable";
-
-export {
+    createContext,
+    $define,
+    $defineAsync,
+    define,
+    get,
+    upgrade,
+    useCallback,
+    useContext,
+    useEffect,
+    useLayoutEffect,
+    useMemo,
+    useReducer,
+    useRef,
+    useState,
+    whenDefined,
+    html,
+    h,
     render,
-    rhtml as html,
-    rsvg as svg,
-    r as h,
-    rs as hs,
-} from "sinuous/render";
-
-export {
-    when
+    Fragment,
+    createElement,
+    completeAssign
 };
