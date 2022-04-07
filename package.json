@@ -1,11 +1,11 @@
 {
-	"name": "uelements",
-	"description": "uelements provides a functional way of defining custom elements",
-	"version": "0.0.4",
+	"name": "uwhen-sinuous",
+	"description": "When elements with sinuous",
+	"version": "0.0.2",
 	"source": "./src/index.ts",
-	"main": "./dist/uelements.umd.js",
-	"module": "./dist/uelements.es.js",
-	"unpkg": "./dist/uelements.umd.js",
+	"main": "./dist/uwhen-sinuous.umd.js",
+	"module": "./dist/uwhen-sinuous.es.js",
+	"unpkg": "./dist/uwhen-sinuous.umd.js",
 	"types": "index.d.ts",
 	"files": [
 		"dist/",
@@ -20,18 +20,21 @@
 	},
 	"exports": {
 		".": {
-			"import": "./dist/uelements.es.js",
-			"require": "./dist/uelements.umd.js"
+			"import": "./dist/uwhen-sinuous.es.js",
+			"require": "./dist/uwhen-sinuous.umd.js"
 		}
 	},
 	"devDependencies": {
-    "@types/node": "^17.0.23",
-		"typescript": "^4.5.4",
-		"vite": "^2.8.0"
+		"@types/node": "^16.0.0",
+		"typescript": "^4.3.2",
+		"vite": "^2.3.8"
+	},
+	"directories": {
+		"example": "example"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/kethan/uelements.git"
+		"url": "git+https://github.com/kethan/uwhen-sinuous.git"
 	},
 	"keywords": [
 		"functional",
@@ -42,9 +45,8 @@
 		"elements",
 		"define",
 		"lifecycle",
-		"web components",
-		"components",
-		"custom element",
+		"mount",
+		"unmount",
 		"hooks",
 		"react",
 		"preact"
@@ -52,12 +54,12 @@
 	"author": "Kethan Surana",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/kethan/uelements/issues"
+		"url": "https://github.com/kethan/uwhen-sinuous/issues"
 	},
-	"homepage": "https://github.com/kethan/uelements#readme",
+	"homepage": "https://github.com/kethan/uwhen-sinuous#readme",
 	"dependencies": {
-		"hooked-elements": "^2.2.2",
-		"htm": "^3.1.0",
-		"preact": "^10.7.0"
+		"sinuous": "^0.27.12",
+		"swiss": "^2.4.0",
+		"when-elements": "^0.2.1"
 	}
 }

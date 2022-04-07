@@ -7,23 +7,23 @@ uelements provides a functional way of defining custom elements.
 ```
 
 ```jsx
-import { define, useState } from "uelements";
+import { define, useState, o } from "uwhen-sinuous";
 
-function Counter() {
-	const [value, setValue] = useState(0);
+function Counter({count}) {
+	const value = o(count);
 
 	return (
 		<>
 			<div>Counter: {value}</div>
-			<button onClick={() => setValue(value + 1)}>Increment</button>
-			<button onClick={() => setValue(value - 1)}>Decrement</button>
+			<button onClick={() => value(value() + 1)}>Increment</button>
+			<button onClick={() => value(value() - 1)}>Decrement</button>
 		</>
 	);
 }
 
-define("my-counter", (el) => (
-	<PalTest count={parseInt(el.getAttribute("count") || "0")} />
-), ["count"]);
+define("my-counter", {count : 0} (el) => (
+	<Counter count={el.count}} />
+));
 ```
 
-Courtesy: hooked-elements, preact and swiss
+Courtesy: swiss and sinuous
