@@ -1,7 +1,7 @@
 {
 	"name": "uwhen-sinuous",
 	"description": "HTML elements with swiss and preact render",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"source": "./src/index.ts",
 	"main": "./dist/uwhen-sinuous.umd.js",
 	"module": "./dist/uwhen-sinuous.es.js",

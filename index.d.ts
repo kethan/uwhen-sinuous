@@ -22,6 +22,7 @@ export {
     Context
 } from "preact";
 
+export { createContext } from 'preact/compat';
 export {
     useState,
     useReducer,
