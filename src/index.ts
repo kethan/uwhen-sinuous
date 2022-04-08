@@ -4,10 +4,12 @@ import {
     render
 } from "sinuous/render";
 
-const define = (selector: string, props, callback) => {
-    const setup = (CE) => (el) => {
+export type Callback = (element: HTMLElement) => void;
+
+const define = (selector: string, props: Record<string, any>, callback: Callback) => {
+    const setup = (CE) => (el: HTMLElement) => {
         return {
-            update: () => render(callback(el), el)
+            update: () => render(callback(el) as any, el)
         };
     };
     $define(selector, {
@@ -25,15 +27,13 @@ export {
 } from "sinuous/observable";
 
 export {
-    render,
-    rhtml as html,
-    rsvg as svg,
-    r as h,
-    rs as hs,
+    render
 } from "sinuous/render";
 
 export {
     define
 };
+
+export { h, hs, svg, html } from 'sinuous';
 
 export * as swiss from 'swiss';

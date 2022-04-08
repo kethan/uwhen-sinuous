@@ -1,7 +1,7 @@
 {
 	"name": "uwhen-sinuous",
-	"description": "When elements with sinuous",
-	"version": "0.0.2",
+	"description": "HTML elements with sinuous and swiss",
+	"version": "0.0.6",
 	"source": "./src/index.ts",
 	"main": "./dist/uwhen-sinuous.umd.js",
 	"module": "./dist/uwhen-sinuous.es.js",

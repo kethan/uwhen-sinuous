@@ -9,11 +9,9 @@ export {
 } from "sinuous/observable";
 
 export {
-    render,
-    rhtml as html,
-    rsvg as svg,
-    r as h,
-    rs as hs,
+    render
 } from "sinuous/render";
+
+export { h, hs, svg, html } from 'sinuous';
 
 export { define };

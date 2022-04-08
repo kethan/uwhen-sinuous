@@ -77,13 +77,13 @@ function u$3(t2) {
     t2[e2] = s$2(t2[e2], { set: void 0 });
   return t2;
 }
-function a$1(t2) {
+function a$2(t2) {
   for (let e2 in t2)
     t2[e2] = s$2(t2[e2], { reflect: true });
   return t2;
 }
-const f$4 = (t2, { props: e2 = {} }) => (t2.propConfigs || (t2.propConfigs = {}, t2.defineProp = p), Object.keys(e2).forEach((n2) => t2.defineProp(n2, e2[n2])), l$2);
-function p(t2, e2) {
+const f$3 = (t2, { props: e2 = {} }) => (t2.propConfigs || (t2.propConfigs = {}, t2.defineProp = p$1), Object.keys(e2).forEach((n2) => t2.defineProp(n2, e2[n2])), l$1);
+function p$1(t2, e2) {
   (typeof e2 != "object" || e2 === null || Array.isArray(e2)) && (e2 = s$2(e2)), this.propConfigs[t2] = e2;
   const n2 = { get() {
     return this.getProp(t2);
@@ -92,7 +92,7 @@ function p(t2, e2) {
   }, enumerable: true, configurable: true };
   Object.defineProperty(this.prototype, t2, n2);
 }
-function l$2(e2) {
+function l$1(e2) {
   const { propConfigs: n2 } = e2.constructor, o2 = {};
   let r2, s2;
   function u2(t2) {
@@ -134,18 +134,18 @@ const d = () => (t2) => {
       return o2[t3] = c2, n2 || (n2 = true, e2 = s2()), e2;
   } };
 };
-e$2.push(f$4, d);
+e$2.push(f$3, d);
 var swiss = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   Element: n$3,
-  PropsMixin: f$4,
+  PropsMixin: f$3,
   UpdateMixin: d,
   define: r$2,
   fromAttribute: i$3,
   mixins: e$2,
   property: s$2,
   readonly: u$3,
-  reflect: a$1,
+  reflect: a$2,
   toAttribute: c$3
 }, Symbol.toStringTag, { value: "Module" }));
 let t$2 = (n2, e2, o2, f2) => {
@@ -187,13 +187,13 @@ let t$2 = (n2, e2, o2, f2) => {
 }, e$1 = /* @__PURE__ */ new Map(), o$2 = function(o2) {
   let f2 = e$1.get(this);
   return f2 || (f2 = /* @__PURE__ */ new Map(), e$1.set(this, f2)), f2 = t$2(this, f2.get(o2) || (f2.set(o2, f2 = n$1(o2)), f2), arguments, []), f2.length > 1 ? f2 : f2[0];
-}, f$3 = function() {
+}, f$2 = function() {
   let t2 = o$2.apply(this, arguments);
   if (t2)
     return Array.isArray(t2) ? this(t2) : typeof t2 == "object" ? t2 : this([t2]);
 };
 function n$2() {
-  let t2 = f$3.bind(this);
+  let t2 = f$2.bind(this);
   return (this.wrap || t2).apply(t2, arguments);
 }
 let n = [];
@@ -201,7 +201,7 @@ let t$1;
 function o$1(n2) {
   let r2 = t$1, u2 = () => {
   };
-  t$1 = u2, a(u2);
+  t$1 = u2, a$1(u2);
   let o2 = n2(() => {
     S(u2), t$1 = void 0;
   });
@@ -225,7 +225,7 @@ function i$2(u2) {
   }
   return o2.$o = 1, o2.__o = /* @__PURE__ */ new Set(), o2.t = n, o2;
 }
-function f$2(n2, r2) {
+function f$1(n2, r2) {
   function u2() {
     let o3 = t$1;
     return t$1 && t$1.__c.push(u2), S(u2), u2.i = true, t$1 = u2, r2 = n2(r2), t$1 = o3, r2;
@@ -233,24 +233,24 @@ function f$2(n2, r2) {
   function o2() {
     return u2.i ? t$1 && u2.u.forEach((n3) => n3()) : r2 = u2(), r2;
   }
-  return n2.s = u2, a(u2), u2(), o2.$o = 1, o2;
+  return n2.s = u2, a$1(u2), u2(), o2.$o = 1, o2;
 }
 function s$1(n2) {
   return t$1 && t$1.l.push(n2), n2;
 }
-function l$1(n2) {
-  return f$2(n2), () => S(n2.s);
+function l(n2) {
+  return f$1(n2), () => S(n2.s);
 }
 function S(n2) {
   n2.__c.forEach(S), n2.u.forEach((t2) => {
     t2.__o.delete(n2), t2.o && t2.o.delete(n2);
-  }), n2.l.forEach((n3) => n3()), a(n2);
+  }), n2.l.forEach((n3) => n3()), a$1(n2);
 }
-function a(n2) {
+function a$1(n2) {
   n2.u = [], n2.__c = [], n2.l = [];
 }
 let r$1 = {}, i$1 = [];
-function f$1(e2) {
+function f(e2) {
   return this.t && this.t[e2.type](e2);
 }
 r$1.h = (...e2) => {
@@ -286,7 +286,7 @@ r$1.h = (...e2) => {
       o2[0] !== "o" || o2[1] !== "n" || t2.$o ? typeof t2 == "function" ? r$1.subscribe(() => {
         r$1.property(e2, t2.call({ el: e2, name: o2 }), o2, n2, s2);
       }) : s2 ? e2.style.setProperty(o2, t2) : n2 || o2.slice(0, 5) === "data-" || o2.slice(0, 5) === "aria-" ? e2.setAttribute(o2, t2) : o2 === "style" ? typeof t2 == "string" ? e2.style.cssText = t2 : r$1.property(e2, t2, null, n2, true) : (o2 === "class" && (o2 += "Name"), e2[o2] = t2) : ((e3, t3, o3) => {
-        t3 = t3.slice(2).toLowerCase(), o3 ? e3.addEventListener(t3, f$1) : e3.removeEventListener(t3, f$1), (e3.t || (e3.t = {}))[t3] = o3;
+        t3 = t3.slice(2).toLowerCase(), o3 ? e3.addEventListener(t3, f) : e3.removeEventListener(t3, f), (e3.t || (e3.t = {}))[t3] = o3;
       })(e2, o2, t2);
 }, r$1.add = (e2, t2, o2) => {
   let n2 = ((e3) => {
@@ -300,13 +300,13 @@ r$1.h = (...e2) => {
     let o3 = t2.nextSibling;
     e2 === t2.parentNode && e2.removeChild(t2), t2 = o3;
   }
-}, r$1.subscribe = l$1, r$1.cleanup = s$1, r$1.root = o$1, r$1.sample = c$2, r$1.hs = (...e2) => {
+}, r$1.subscribe = l, r$1.cleanup = s$1, r$1.root = o$1, r$1.sample = c$2, r$1.hs = (...e2) => {
   let t2 = r$1.s;
   r$1.s = true;
   let o2 = u$2(...e2);
   return r$1.s = t2, o2;
 };
-let u$2 = (...e2) => r$1.h.apply(r$1.h, e2);
+let u$2 = (...e2) => r$1.h.apply(r$1.h, e2), a = (...e2) => r$1.hs.apply(r$1.hs, e2), c$1 = (...e2) => n$2.apply(u$2, e2), p = (...e2) => n$2.apply(a, e2);
 let t;
 function r(e2, r2, o2) {
   let u2 = function() {
@@ -334,7 +334,7 @@ function o(e2, r2) {
     let o3 = {};
     let u2;
     return r2 ? (s2.p && s2.p.forEach((n2) => s2.appendChild(n2)), u2 = s2) : u2 = f2.cloneNode(true), u2.firstChild && (u2.firstChild.props = t2), i2.forEach((n2) => {
-      n2.A = r2 ? n2.o : c$1(u2, n2.g), n2.h = r2 ? n2.u : n2.j && c$1(n2.A, n2.j);
+      n2.A = r2 ? n2.o : c(u2, n2.g), n2.h = r2 ? n2.u : n2.j && c(n2.A, n2.j);
     }), i2.forEach((e4) => {
       r$1.action(e4, t2, o3)(e4.i, e4.l);
     }), s2.p = Array.from(s2.childNodes), u2;
@@ -349,7 +349,7 @@ function u$1(n2, t2) {
     r2.unshift(Array.from(e2.childNodes).indexOf(t2)), t2 = e2;
   return r2;
 }
-function c$1(n2, t2) {
+function c(n2, t2) {
   return t2.forEach((t3) => n2 = n2.childNodes[t3]), n2;
 }
 r$1.action = (n2, t2, e2) => {
@@ -372,8 +372,8 @@ function i(n2) {
       const { endMark: s2 } = this || {}, c2 = o$13.join("\0");
       let f2 = u[c2];
       f2 || (f2 = o(() => n3.apply(null, t2)), u[c2] = f2), e2.t = e2.t || s2;
-      let m2 = s2 && e2.t !== s2;
-      return f2.t ? m2 = f2.t !== s2 : f2.t = s2, f2(i2, !m2);
+      let m = s2 && e2.t !== s2;
+      return f2.t ? m = f2.t !== s2 : f2.t = s2, f2(i2, !m);
     }
     return e2;
   }, o$12;
@@ -384,13 +384,8 @@ function e(n2, o2) {
 function s(n2) {
   return r(n2);
 }
-let c = i(), f = i(true);
-function m() {
-  return n$2.apply(c, arguments);
-}
-function l() {
-  return n$2.apply(f, arguments);
-}
+i();
+i(true);
 const define = (selector, props, callback) => {
   const setup = (CE) => (el) => {
     return {
@@ -402,4 +397,4 @@ const define = (selector, props, callback) => {
     setup
   });
 };
-export { s$1 as cleanup, f$2 as computed, define, c as h, f as hs, m as html, i$2 as o, i$2 as observable, e as render, l$1 as subscribe, l as svg, swiss };
+export { s$1 as cleanup, f$1 as computed, define, u$2 as h, a as hs, c$1 as html, i$2 as o, i$2 as observable, e as render, l as subscribe, p as svg, swiss };
