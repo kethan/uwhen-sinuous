@@ -1,7 +1,7 @@
 {
 	"name": "uwhen-sinuous",
-	"description": "HTML elements with sinuous and swiss",
-	"version": "0.0.7",
+	"description": "HTML elements with swiss and preact render",
+	"version": "0.0.8",
 	"source": "./src/index.ts",
 	"main": "./dist/uwhen-sinuous.umd.js",
 	"module": "./dist/uwhen-sinuous.es.js",
@@ -58,7 +58,7 @@
 	},
 	"homepage": "https://github.com/kethan/uwhen-sinuous#readme",
 	"dependencies": {
-		"sinuous": "^0.27.12",
+		"preact": "^10.7.1",
 		"swiss": "^2.4.0"
 	}
 }
